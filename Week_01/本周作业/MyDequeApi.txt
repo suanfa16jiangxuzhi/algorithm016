@@ -1,0 +1,35 @@
+
+class MyDeque<E> implements Deque<E> {
+    class Node<E> {
+        E value;
+        Node<E> next;
+        Node<E> pre;
+        public Node (E e) {
+            this.value = e;
+        }
+    }
+    private int capacity;//队列大小
+    private Node front = new Node(null);//始终指向第一个元素
+    private Node rear = new Node(null);//始终指向最后元素
+    public MyDeque(){
+        front.next = rear;
+        rear.pre = front;
+    }
+    @Override
+    public void addFirst(E e) {
+        Node temp = new Node(e);
+        front.pre = temp;
+        temp.next = front;
+        front = temp;
+        capacity++;
+    }
+
+    @Override
+    public void addLast(E e) {
+        Node temp = new Node(e);
+        rear.next = temp;
+        temp.pre = rear;
+        rear = temp;
+        capacity++;
+    }
+}
