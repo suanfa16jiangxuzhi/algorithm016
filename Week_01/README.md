@@ -1,5 +1,19 @@
 学习笔记
 
+Before：这道算法题通宵也要做出来。
+
+After：思考2分钟，看题解，理解加背写。同一个题多刷几遍。
+
+从结果上来看，曾经的方法的确不好，浪费时间，写出的算法也比较搓，代码很长，而且就写一遍，下次还是写不出来。用了超哥的方法可以花较少的时间做下来不少题，然后在反复的默写背诵中提升对于代码的理解。
+
+数组问题注意事项：
+
+指针(双指针反转数组、三指针、去重等等)、排序、边界条件。
+
+链表问题注意事项：
+
+递归（返回值，结束条件，操作）、辅助节点、运气。
+
 # Queue：
 
 https://blog.csdn.net/devnn/article/details/82591349  && https://www.cnblogs.com/Free-Thinker/p/3581490.html
@@ -95,3 +109,4 @@ https://www.cnblogs.com/wei-jing/p/10806236.html
 **PriorityBlockingQueue**是一个带优先级的 队列，而不是先进先出队列。元素按优先级顺序被移除，该队列也没有上限（看了一下源码，PriorityBlockingQueue是对 PriorityQueue的再次包装，是基于堆数据结构的，而PriorityQueue是没有容量限制的，与ArrayList一样，所以在优先阻塞 队列上put时是不会受阻的。虽然此队列逻辑上是无界的，但是由于资源被耗尽，所以试图执行添加操作可能会导致 OutOfMemoryError），但是如果队列为空，那么取元素的操作take就会阻塞，所以它的检索操作take是受阻的。另外，往入该队列中的元 素要具有比较能力。
 
 ![image-20200913123137547](C:\Users\姜天才\AppData\Roaming\Typora\typora-user-images\image-20200913123137547.png)
+```
