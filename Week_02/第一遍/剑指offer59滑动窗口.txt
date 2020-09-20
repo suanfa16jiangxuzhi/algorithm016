@@ -1,0 +1,44 @@
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0 || k == 0) return new int[0];
+        Deque<Integer> deque = new LinkedList<>();
+        int[] res = new int[nums.length - k + 1];
+        for(int j = 0, i = 1 - k; j < nums.length; i++, j++) {
+            if(i > 0 && deque.peekFirst() == nums[i - 1])
+                deque.removeFirst(); // 删除 deque 中对应的 nums[i-1]
+            while(!deque.isEmpty() && deque.peekLast() < nums[j])
+                deque.removeLast(); // 保持 deque 递减
+            deque.addLast(nums[j]);
+            if(i >= 0)
+                res[i] = deque.peekFirst();  // 记录窗口最大值
+        }
+        return res;
+
+    }
+}
+
+
+
+方法二：比较慢
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums.length == 0) return new int[]{};
+        int[] res = new int[nums.length - k + 1];
+        Deque<Integer> deque = new LinkedList<>();
+        int len = nums.length;
+        int index = 0;
+        for (int i = 0; i < len; i++) {
+            while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]){
+                deque.pollLast();
+            }
+            deque.addLast(i);
+            while (!deque.isEmpty() && deque.getFirst()<=i-k){
+                deque.pollFirst();
+            }
+            if (i >= k - 1) {
+                res[index++] = nums[deque.getFirst()];
+            }
+        }
+        return res;
+    }
+}

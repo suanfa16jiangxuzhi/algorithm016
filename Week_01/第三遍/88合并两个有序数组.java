@@ -11,3 +11,4 @@ class Solution {
 		System.arraycopy(nums2,0,nums1,0,index2+1);
 		
 	}
+}

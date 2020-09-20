@@ -1,0 +1,23 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+        int len = strs.length;
+        for (int i = 0; i < len; i++) {
+            char[] charArr = strs[i].toCharArray();
+            Arrays.sort(charArr);
+            String key = new String(charArr);
+            if (map.containsKey(key)) {
+                map.get(key).add(strs[i]);
+            }else {
+                List<String> temp = new ArrayList<>();
+                temp.add(strs[i]);
+                map.put(key,temp);
+            }
+        }
+        return new ArrayList<List<String>>(map.values());
+    }
+}
+
+// 思路：
+// 1、把数组中的每一个字符串先--->字符数组------>排序------>作为map的key
+// 2、如果有这个key，就把map的value（List<String>）调用add方法添加这个strs[i]

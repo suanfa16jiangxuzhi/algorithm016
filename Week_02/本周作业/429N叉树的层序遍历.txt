@@ -1,0 +1,22 @@
+class Solution {
+    private List<List<Integer>> res;
+    public List<List<Integer>> levelOrder(Node root) {
+        res = new ArrayList<>();
+        levelBianli(root,0);
+        return res;
+    }
+    public void levelBianli(Node root,int level) {
+        if (root == null) return;
+        if (res.size() <= level) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level).add(root.val);
+        for (Node child:root.children
+             ) {
+            levelBianli(child,level+1);
+        }
+
+    }
+}
+
+// 神奇的 'level'(用来控制层数)

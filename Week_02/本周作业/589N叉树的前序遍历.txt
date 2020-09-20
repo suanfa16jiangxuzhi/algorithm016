@@ -1,0 +1,37 @@
+class Solution {
+    private List<Integer> res;
+    public List<Integer> preorder(Node root) {
+        res = new ArrayList<>();
+        dfs(root);
+        return res;
+    }
+    public void dfs(Node root) {
+        if (root == null) return;
+        res.add(root.val);
+        for (Node child:root.children
+             ) {
+            dfs(child);
+        }
+    }
+}
+
+
+// 590.n叉树的后续遍历
+class Solution {
+    private List<Integer> res;
+    public List<Integer> postorder(Node root) {
+        res = new ArrayList<>();
+        dfs(root);
+        return res;
+    }
+    public void dfs(Node root) {
+        if (root == null) return;
+        for (Node child:root.children
+        ) {
+            dfs(child);
+        }
+        res.add(root.val);
+    }
+}
+
+// 先写个返回数组或集合的方法，再写个void类型的方法

@@ -1,0 +1,15 @@
+class Solution {
+    private List<Integer> res;
+    public List<Integer> inorderTraversal(TreeNode root) {
+       res = new ArrayList<>();
+       midBianLi(root);
+       return res;
+    }
+    public void midBianLi(TreeNode root) {
+        if (root == null) return;
+        if (root.left != null) midBianLi(root.left);
+        res.add(root.val);
+        if (root.right != null) midBianLi(root.right);
+    }
+
+}
