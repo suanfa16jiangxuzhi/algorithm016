@@ -9,7 +9,7 @@ class Solution {
             if (i > 0 && nums[i] == nums[i-1]) continue;//首指针去重
             int l = i + 1;
             int r = len - 1;
-            first:while (l < r) {
+            while (l < r) {
                 int sum = nums[i] + nums[l] + nums[r];
                 if (sum == 0) {
                res.add(Arrays.asList(nums[i],nums[l],nums[r]));
