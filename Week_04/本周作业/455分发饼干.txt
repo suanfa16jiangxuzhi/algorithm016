@@ -1,0 +1,36 @@
+class Solution {
+        public int findContentChildren(int[] g, int[] s) {
+
+            if (g == null || s == null || g.length == 0 || s.length == 0) return 0;
+            Arrays.sort(g);
+            Arrays.sort(s);
+
+            int idx_child = 0;
+            int idx_cookie = 0;
+            int count = 0;
+
+            while (idx_child < g.length) {
+
+                
+                if (idx_cookie > s.length-1) return count;
+
+                while (idx_cookie < s.length) {
+
+                    if (s[idx_cookie] >= g[idx_child]) {
+                        idx_child++;
+                        idx_cookie++;
+                        count++;
+
+                      
+                        if (idx_child > g.length-1) return count;
+
+                    }else { 
+                        idx_cookie++;
+                    }
+                }
+            }
+
+            return count;
+        }
+    }
+
